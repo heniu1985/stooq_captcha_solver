@@ -1,5 +1,4 @@
 import time
-from unittest import result
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -13,7 +12,11 @@ from api_key import API_KEY
 
 url = "https://stooq.pl/db/h/"
 
-driver = webdriver.Chrome(executable_path="chromedriver.exe")
+options = webdriver.ChromeOptions()
+options.add_experimental_option("prefs", {"download.default_directory": "/data/"})
+
+driver = webdriver.Chrome(executable_path="chromedriver.exe", chrome_options = options)
+
 driver.get(url)
 driver.maximize_window()
 
@@ -39,7 +42,7 @@ solver = TwoCaptcha(API_KEY)
 captcha_solve = solver.normal("captcha.png")
 
 id = solver.send(file = "captcha.png")
-time.sleep(30)
+time.sleep(20)
 
 code = solver.get_result(id)
 
@@ -48,6 +51,11 @@ captcha_text.send_keys(code)
 
 captcha_button = driver.find_element(By.XPATH, "/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr/td/table[5]/tbody/tr/td/div[1]/div[1]/table/tbody/tr/td/table/tbody/tr[6]/td/input")
 captcha_button.click()
+
+driver.implicitly_wait(15)
+
+download_button = driver.find_element(By.ID, "cpt_gt")
+download_button.click()
 
 time.sleep(5)
 
