@@ -17,16 +17,19 @@ driver = webdriver.Chrome(executable_path="chromedriver.exe")
 driver.get(url)
 driver.maximize_window()
 
+time.sleep(3)
 driver.implicitly_wait(5)
 
 cookie_button = driver.find_element(By.XPATH, "/html/body/div/div[2]/div[1]/div[2]/div[2]/button[1]/p")
 cookie_button.click()
 
+time.sleep(3)
 driver.implicitly_wait(15)
 
 download_link = driver.find_element(By.XPATH, "/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr/td/table[5]/tbody/tr/td/table/tbody/tr[2]/td[1]/table/tbody/tr[5]/td[3]/a")
 download_link.click()
 
+time.sleep(3)
 driver.implicitly_wait(15)
 
 captcha_img = driver.find_element(By.ID, "cpt_cd")
@@ -49,9 +52,11 @@ captcha_text.send_keys(code)
 captcha_button = driver.find_element(By.XPATH, "/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table/tbody/tr/td/table[5]/tbody/tr/td/div[1]/div[1]/table/tbody/tr/td/table/tbody/tr[6]/td/input")
 captcha_button.click()
 
+time.sleep(3)
 driver.implicitly_wait(15)
 
 download_button = driver.find_element(By.ID, "cpt_gt")
 download_button.click()
 
-# driver.close()
+time.sleep(3)
+driver.close()
