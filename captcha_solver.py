@@ -12,10 +12,7 @@ from api_key import API_KEY
 
 url = "https://stooq.pl/db/h/"
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option("prefs", {"download.default_directory": "/data/"})
-
-driver = webdriver.Chrome(executable_path="chromedriver.exe", chrome_options = options)
+driver = webdriver.Chrome(executable_path="chromedriver.exe")
 
 driver.get(url)
 driver.maximize_window()
@@ -42,7 +39,7 @@ solver = TwoCaptcha(API_KEY)
 captcha_solve = solver.normal("captcha.png")
 
 id = solver.send(file = "captcha.png")
-time.sleep(20)
+time.sleep(30)
 
 code = solver.get_result(id)
 
@@ -57,6 +54,4 @@ driver.implicitly_wait(15)
 download_button = driver.find_element(By.ID, "cpt_gt")
 download_button.click()
 
-time.sleep(5)
-
-driver.close()
+# driver.close()
