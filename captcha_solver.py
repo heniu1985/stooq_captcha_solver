@@ -2,14 +2,19 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 from twocaptcha import TwoCaptcha
 
 from api_key import API_KEY
 
-url = "https://stooq.pl/db/h/"
+chrome_options = Options()
 
-driver = webdriver.Chrome(executable_path="chromedriver.exe")
+chrome_options.add_argument("--headless=chrome")
+
+driver = webdriver.Chrome(executable_path="chromedriver.exe", options=chrome_options)
+
+url = "https://stooq.pl/db/h/"
 
 driver.get(url)
 driver.maximize_window()
@@ -55,5 +60,5 @@ driver.implicitly_wait(15)
 download_button = driver.find_element(By.ID, "cpt_gt")
 download_button.click()
 
-time.sleep(3)
+time.sleep(90)
 driver.close()
