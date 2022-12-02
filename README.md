@@ -16,7 +16,7 @@ This script should resolve captcha from stooq.pl to download data I need.
 * Visual Studio Code
 
 ## Status
-Project is: _done_
+Project is: _in progress_
 
 ## Contact
 Created by [@heniu1985](https://github.com/heniu1985) - feel free to contact me!

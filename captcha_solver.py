@@ -1,4 +1,5 @@
 import time
+import os
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -6,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 
 from twocaptcha import TwoCaptcha
 
-from api_key import API_KEY
+from dotenv import load_dotenv
 
 chrome_options = Options()
 
@@ -39,6 +40,8 @@ captcha_img = driver.find_element(By.ID, "cpt_cd")
 with open("captcha.png", "wb") as captcha:
     captcha.write(captcha_img.screenshot_as_png)
 
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
 solver = TwoCaptcha(API_KEY)
 
 captcha_solve = solver.normal("captcha.png")
