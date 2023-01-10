@@ -14,7 +14,7 @@ chrome_options = Options()
 chrome_options.add_argument("--headless=chrome")
 
 driver = webdriver.Chrome(
-    executable_path="chromedriver.exe",
+    executable_path='chromedriver',
     options=chrome_options
 )
 
@@ -56,7 +56,7 @@ solver = TwoCaptcha(API_KEY)
 captcha_solve = solver.normal("captcha.png")
 
 id = solver.send(file="captcha.png")
-time.sleep(30)
+time.sleep(10)
 
 code = solver.get_result(id)
 
