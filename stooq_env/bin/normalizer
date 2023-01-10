@@ -1,4 +1,4 @@
-#!/home/hennekd/Programowanie/Projekty/stooq_captcha_solver/stooq_env/bin/python3
+#!/home/hennekd/Programowanie/Projekty/stooq_captcha_solver/stooq_env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
