@@ -56,7 +56,7 @@ solver = TwoCaptcha(API_KEY)
 captcha_solve = solver.normal("captcha.png")
 
 id = solver.send(file="captcha.png")
-time.sleep(10)
+time.sleep(45)
 
 code = solver.get_result(id)
 
